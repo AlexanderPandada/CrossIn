@@ -1,0 +1,65 @@
+题目：
+
+在教程最开始的几课里，有一个猜数字的游戏：程序随机一个结果，用户通过命令行输入去猜。程序会告诉你猜大了还是小了，直到猜中为止。
+
+现在，请你独立实现这个小游戏，并且加上一些功能，比如：
+
+- 游戏可以反复进行，猜中了之后可以重新开始
+- 统计用户猜了几轮，平均几次猜中
+- 限制每轮猜的次数，判定输赢
+
+import random
+
+win_times = 0 # 统计赢了几次，用来计算平均几次猜中
+
+round_times = 0 # 统计游戏进行次数
+
+reset = 1 # 用来判断是否要重新玩
+
+while reset == 1:
+    
+    round_times += 1 # 统计游戏进行次数
+    
+    time = 0 # 用来统计每一轮猜的次数（最多猜3次）
+
+    right_answer = random.randint(1,20) # 生成随机数,脚本给出正确答案
+
+    print right_answer # 输出正确答案，测试用
+    
+    bingo = False
+    
+    while bingo == False: # 判断输赢
+        
+        time += 1.0 # 统计猜的次数（最多猜3次）
+        
+        given_answer = input("请输入一个数字：") # 用户输入
+        
+        if given_answer == right_answer:
+            print "猜对了,游戏结束"
+            bingo = True
+            
+        elif time == 3:
+            print "游戏结束"
+            bingo = True
+            
+        elif given_answer > right_answer:
+            print "猜的数字大了"
+            
+        elif given_answer < right_answer:
+            print "猜的数字小了"
+
+        else:
+            print "请输入一个数字"
+            time -= 1
+            
+    win_times += time
+    
+    reset = input("继续游戏:1\n结束游戏:0\n请做出选择：")
+
+print "您进行了", round_times, "次游戏."
+print "您平均", win_times / round_times, "次猜中 "
+
+
+
+
+
