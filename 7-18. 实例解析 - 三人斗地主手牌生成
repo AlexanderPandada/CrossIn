@@ -1,0 +1,25 @@
+import random
+
+list1 = ['1','2','3','4','5','6','7','8','9','10','J','Q','K']
+
+list2 = ['H','S','D','C']  # 四个花色：heart , spade , diamond , club
+
+list3 = [ x + y for x in list1 for y in list2]
+
+list3.append('RJ') # Red Joker
+list3.append('BJ')# Black Joker
+
+random.shuffle(list3)
+
+A = list3[:17]
+B = list3[17:34]
+C = list3[34:51]
+D = list3[51:]
+
+print  '选手A的牌：',A,'\n'
+
+print  '选手B的牌：',B,'\n'
+
+print  '选手C的牌：',C,'\n'
+
+print  '剩余的牌：',D,'\n'
