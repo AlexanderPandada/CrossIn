@@ -1,0 +1,10 @@
+import random
+import string
+
+for i in range (0, 200):
+    
+    list_store = list(string.ascii_letters)
+
+    random.shuffle(list_store)
+
+    print ''.join(list_store[:8])
